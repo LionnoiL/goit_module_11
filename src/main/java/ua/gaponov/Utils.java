@@ -2,6 +2,7 @@ package ua.gaponov;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
@@ -26,7 +27,7 @@ public class Utils {
     public static List<String> getSortNames(List<String> names) {
         return names
                 .stream()
-                .sorted()
+                .sorted(Comparator.reverseOrder())
                 .map(String::toUpperCase)
                 .collect(Collectors.toList());
     }
@@ -71,11 +72,7 @@ public class Utils {
         long sizeFirst = firstList.size();
         long sizeSecond = secondList.size();
 
-        long minSize = sizeFirst;
-
-        if (sizeSecond<minSize){
-            minSize = sizeSecond;
-        }
+        long minSize = Math.min(sizeFirst, sizeSecond);
 
         for (int i = 0; i < minSize; i++){
             resultList.add(firstList.get(i));
