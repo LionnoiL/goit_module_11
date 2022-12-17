@@ -1,9 +1,6 @@
 package ua.gaponov;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -15,13 +12,15 @@ public class Utils {
         throw new IllegalStateException("Utility class");
     }
 
-    public static void printNamesList(List<String> names) {
+    public static String printNamesList(List<String> names) {
+        StringJoiner result = new StringJoiner(", ");
         IntStream.range(0, names.size())
                 .forEach(index -> {
                     if (index % 2 != 0) {
-                        System.out.println("" + index + ". " + names.get(index));
+                        result.add("" + index + ". " + names.get(index));
                     }
                 });
+        return result.toString();
     }
 
     public static List<String> getSortNames(List<String> names) {

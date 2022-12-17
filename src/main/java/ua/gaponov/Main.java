@@ -19,7 +19,7 @@ public class Main {
 
         String[] digits = {"1, 2, 0", "4, 5"};
 
-        Utils.printNamesList(names);
+        System.out.println(Utils.printNamesList(names));
 
         System.out.println(Utils.getSortNames(names));
 
